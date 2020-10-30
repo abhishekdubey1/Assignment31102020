@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import View1 from "./View1";
@@ -13,6 +13,13 @@ const View = ({ username }) => {
   const [show, setShow] = useState(
     useMediaQuery({ query: "(max-width: 1224px)" })
   );
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("userLoginData"));
+    if (!user) {
+      history.push("/signin");
+    }
+    return () => {};
+  }, []);
   return (
     <>
       <div className="container">
