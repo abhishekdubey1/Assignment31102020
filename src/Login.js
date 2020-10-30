@@ -15,6 +15,8 @@ const Login = () => {
       "userLoginData",
       JSON.stringify({ username, password })
     );
+    setUsername("");
+    setPassword("");
     history.push("/");
   };
   return (
